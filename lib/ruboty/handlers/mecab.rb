@@ -20,9 +20,14 @@ module Ruboty
           # wakati
           result = ""
           natto.parse(str) do |n|
-            result += ("#{n.surface} #{n.feature}\n")
+            if n.surface == ""
+              # nothing
+            else
+              result += ("#{n.surface} #{n.feature}\n")
+            end
           end
 
+          # reply
           message.reply(result)
         end
       end
