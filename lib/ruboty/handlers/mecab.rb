@@ -17,9 +17,13 @@ module Ruboty
           # delete prefix
           str = message.body.sub(/(.*) mecab/, "")
 
+          # wakati
+          result = ""
           natto.parse(str) do |n|
-            message.reply("#{n.surface} #{n.feature}")
+            result += ("#{n.surface} #{n.feature}\n")
           end
+
+          message.reply(result)
         end
       end
     end
