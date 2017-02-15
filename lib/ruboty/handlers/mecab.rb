@@ -15,7 +15,7 @@ module Ruboty
           natto = Natto::MeCab.new
 
           # delete prefix
-          str = message.body.sub(/ruboty mecab/, "")
+          str = message.body.sub(/(.*) mecab/, "")
 
           natto.parse(str) do |n|
             message.reply("#{n.surface} #{n.feature}")
